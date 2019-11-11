@@ -22,3 +22,13 @@ function initAudioContext(){
   // wake up AudioContext
   ctx.resume();
 }
+
+document.addEventListener('visibilitychange', function() {
+  console.log('pwa-bgm.js', 'visibilitychange enable!!!', document.hidden)
+  if (document.hidden) {
+    ctx.suspend();
+  } else {
+    ctx.resume();
+  }
+})
+
